@@ -23,15 +23,15 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('home.ejs');
 });
 
 app.get('/msg', (req, res) => {
-  res.render('msg');
+  res.render('msg.ejs');
 });
 
 app.get('/frm', (req, res) => {
-  res.render('form');
+  res.render('form.ejs');
 });
 
 app.post('/frm', async (req, res) => {
@@ -52,7 +52,7 @@ app.get('/yourmsg/:id', async (req, res) => {
     if (!msg) {
       return res.status(404).send("Message not found.");
     }
-    res.render('yourmsg', { msg });
+    res.render('yourmsg.ejs', { msg });
   } catch (err) {
     console.log(err);
     res.status(500).send("Server error.");
@@ -60,7 +60,7 @@ app.get('/yourmsg/:id', async (req, res) => {
 });
 
 app.get('/test', (req, res) => {
-  res.render('yourmsg')
+  res.render('yourmsg.ejs')
 })
 
 app.listen(port, () => {
