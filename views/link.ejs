@@ -32,7 +32,7 @@
       <!-- Display generated link with dynamic ID -->
       <div>
         Your Link:
-        <a href="/yourmsg/<%= id %>">Your Link</a>
+        <a href="/yourmsg/<%= id %>">/yourmsg/<%= id %></a>
       </div>
 
       <!-- Share Button -->
@@ -47,7 +47,8 @@
     </div>
 
     <script>
-      const link = `https://diwaliwale.onrender.com/yourmsg/${id}`;
+      const id = "<%= id %>"; // Ensure 'id' is defined and passed from the server
+      const link = `https://diwaliwale.onrender.com/yourmsg/${id}`; // Correctly formatted link
 
       function shareLink() {
         navigator.clipboard.writeText(link).then(() => {
@@ -57,9 +58,8 @@
 
       function shareWhatsApp() {
         const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(
-          link,
-          "🪔This is For You🌟"
-        )}`;
+          link
+        )} 🪔 This is For You 🌟`;
         window.open(whatsappUrl, "_blank");
       }
 
