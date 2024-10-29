@@ -1,0 +1,176 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #8b0000, #ff4500);
+  padding: 2vw;
+  color: #ffd700;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Keyframes for Slide-In Animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0; /* Start invisible */
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1; /* End visible */
+  }
+}
+
+/* Keyframes for Fade-In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start invisible */
+  }
+  to {
+    opacity: 0.8; /* End visible */
+  }
+}
+
+/* Full-Screen Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 90%;
+  padding: 20px;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+/* Title Styling with Animation */
+.title {
+  font-size: 5rem; /* Default size for larger screens */
+  font-family: "Brush Script MT", cursive;
+  color: #ffd700;
+  margin-top: 20px;
+  opacity: 0; /* Initially invisible */
+  animation: slideIn 1.5s ease-out forwards;
+  animation-delay: 2.5s; /* Delayed start for title after background */
+  text-shadow: #ffd700 1px 0 10px;
+}
+
+/* Message Styling with Animation */
+.message {
+  font-size: 1.2em; /* Default size for larger screens */
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 3px;
+  color: #ffd700;
+  margin-top: 10px;
+  opacity: 0; /* Initially invisible */
+  animation: slideIn 1.5s ease-out forwards;
+  animation-delay: 3s; /* Delayed start for message after title */
+}
+
+/* Decorative Diya Image */
+.diya {
+  width: 150px; /* Default size for larger screens */
+  height: auto;
+  margin: 20px 0;
+  border: 3px solid #ffd700;
+  border-radius: 50%;
+}
+
+/* Background Floral Pattern with Fade-In */
+.background-pattern {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: url("/image/border.png") no-repeat center center;
+  background-size: 100% 100%;
+  opacity: 0; /* Initially invisible */
+  animation: fadeIn 1.5s ease-in-out forwards;
+  animation-delay: 0.5s; /* Background fades in first */
+  z-index: 0;
+}
+
+/* Overlay Image with Fade-In */
+.overlay-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 90vh;
+  z-index: 1;
+  opacity: 0; /* Initially invisible */
+  animation: fadeIn 1.5s ease-in-out forwards;
+  animation-delay: 1s; /* Overlay fades in after background */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem; /* Reduced size for smaller screens */
+    margin-top: 10px; /* Adjusted margin for smaller screens */
+  }
+  .message {
+    font-size: 1.2em; /* Slightly smaller for mobile */
+  }
+  .diya {
+    width: 100px; /* Reduced size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.5rem; /* Further reduced size for very small screens */
+  }
+  .message {
+    font-size: 1em; /* Reduced size for very small screens */
+  }
+}
+
+html, body {
+  height: 100%; /* Ensures body takes full height */
+  overflow: hidden; /* Prevents overflow from creating scrollbars */
+}
+
+
+
+/* CSS */
+.button-12 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+
+  background: #6E6D70;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+  color: #DFDEDF;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-12:focus {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+
+
+form{
+  display: flex;
+  flex-direction: column;
+  opacity: 0.7;
+}
