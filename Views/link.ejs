@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share Your Message</title>
+    <link rel="stylesheet" href="/css/home.css" />
+    <style>
+      /* Popup styling */
+      .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        z-index: 3;
+      }
+      .popup button {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-pattern"></div>
+    <img src="/image/pngwing3.png" alt="Overlay Image" class="overlay-image" />
+    <div class="container">
+      <!-- Display generated link with dynamic ID -->
+      <div>
+        Your Link:
+        <a href="/yourmsg/<%= id %>">Your Link</a>
+      </div>
+
+      <!-- Share Button -->
+      <button onclick="shareLink()" class="button-12">Share</button>
+
+      <!-- Popup for sharing options -->
+      <div class="popup" id="sharePopup">
+        <p>Share this link:</p>
+        <button onclick="shareWhatsApp()">Share on WhatsApp</button>
+        <button onclick="copyLink()">Copy Link</button>
+      </div>
+    </div>
+
+    <script>
+      const link = "<%= `http://localhost:3000/yourmsg/${id}` %>";
+
+      function shareLink() {
+        navigator.clipboard.writeText(link).then(() => {
+          document.getElementById("sharePopup").style.display = "block";
+        });
+      }
+
+      function shareWhatsApp() {
+        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(link)}`;
+        window.open(whatsappUrl, "_blank");
+      }
+
+      function copyLink() {
+        navigator.clipboard.writeText(link).then(() => {
+          alert("Link copied to clipboard!");
+          document.getElementById("sharePopup").style.display = "none";
+        });
+      }
+    </script>
+  </body>
+</html>
